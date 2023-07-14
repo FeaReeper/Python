@@ -68,3 +68,4 @@ matthew = Ninja('Billy', 'Madison', 'gummy bears', 'other ducks')
 
 matthew.feed(150).walk().bathe().display()
 
+
