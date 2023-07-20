@@ -17,7 +17,7 @@ def hello_dojo():
 def hi_name(name):
     return f'Hi {name}'
 
-@app.route('/hi/string:<name>/<int:num>/')
+@app.route('/hi/<string:name>/<int:num>/')
 
 def many_hi(name, num):
     return f'Hi {name * num}'
