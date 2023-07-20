@@ -1,0 +1,37 @@
+insert into users (first_name, last_name, email, created_at, updated_at)
+values
+("Matthew", "Reep", "blueduck@gmail.com", now(), now()),
+("Billy", "Madison", "quacktastic@gmail.com", now(), now()),
+("Happy", "Gilmore", "tapitin@gmail.com", now(), now());
+
+
+select * from users
+
+
+select * from users
+where email = "blueduck@gmail.com";
+
+
+select * from users
+where id = 3;
+
+
+update users
+set last_name = "Pancakes"
+where id = 3;
+
+
+delete from users 
+where id = 2;
+
+
+select * from users
+order by first_name;
+
+
+select * from users
+order by first_name desc;
+
+
+
+

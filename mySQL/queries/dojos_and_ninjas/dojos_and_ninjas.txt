@@ -1,0 +1,51 @@
+INSERT INTO dojos (name)
+VALUE 
+('Kobra Kai'),
+('Coding Dojo'),
+('Eagle Fang');
+
+DELETE FROM dojos
+
+INSERT INTO dojos (name)
+VALUE 
+('Kai Kobra'),
+('Dojo Coding'),
+('Fang Eagle');
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUE 
+('Johnny', 'Cage', 32, 1),
+('Miguel', 'Hernandez', 17, 1),
+('Howard', 'Duck', 6, 1);
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUE 
+('Matthew', 'Reep', 31, 2),
+('Naomi', 'Reep', 30, 2),
+('Nyalee', 'Reep', 6, 2);
+
+INSERT INTO ninjas (first_name, last_name, age, dojo_id)
+VALUE 
+('Lenny', 'Fader', 52, 3),
+('Billy', 'Madison', 28, 3),
+('Happy', 'Gilmore', 30, 3);
+
+
+SELECT * FROM ninjas
+WHERE dojo_id = 1
+
+SELECT * FROM ninjas
+WHERE dojo_id = 3
+
+SELECT * FROM ninjas
+WHERE id = 12
+
+
+SELECT *
+FROM ninjas
+JOIN dojos ON dojos.id = ninjas.dojo_id
+WHERE ninjas.id = 6;
+
+SELECT *
+FROM ninjas
+JOIN dojos ON dojos.id = ninjas.dojo_id;

@@ -1,7 +1,7 @@
 # import pets
 
 class Ninja:
-    pet_food = 100
+    pet_food = 500
 
     def __init__(self, first_name, last_name, treats, pet_food):
         self.fname = first_name
@@ -64,8 +64,8 @@ class Pet:
         return self
 
 
-matthew = Ninja('Billy', 'Madison', 'gummy bears', 'other ducks')
+billy = Ninja('Billy', 'Madison', 'gummy bears', 'other ducks')
 
-matthew.feed(150).walk().bathe().display()
+billy.feed(150).walk().bathe().display()
 
 
