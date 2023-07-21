@@ -3,6 +3,8 @@
 }
 
 .title {
+    margin: 20px auto;
+    padding: 10px;
     background-color: black;
     width: 500px;
 }
