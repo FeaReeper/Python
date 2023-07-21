@@ -1,0 +1,25 @@
+* {
+    margin: 0px auto;
+}
+
+h1 {
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    margin: 20px auto;
+    width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box {
+    margin: 20px;
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 5px;
+    /* background-color: {{color}}; */
+}
