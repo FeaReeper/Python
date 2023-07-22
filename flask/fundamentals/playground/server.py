@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 @app.route('/play')
 def welcome():
-    return render_template('welcome.html', num=3, color='blue')
+    return render_template('welcome.html', num=4, color='blue')
 
 
 @app.route('/play/<int:num>')
