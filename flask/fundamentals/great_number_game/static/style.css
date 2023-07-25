@@ -1,0 +1,35 @@
+* {
+    margin: 30px auto;
+}
+
+.container {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+}
+
+#input {
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#submit {
+    margin: 0px auto;
+}
+
+.box1 {
+    height: 400px;
+    width: 400px;
+    background-color: blue;
+}
+
+.box2 {
+    height: 400px;
+    width: 400px;
+    background-color: lightcoral;
+}
+
+.hint {
+    color: white;
+}

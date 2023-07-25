@@ -1,0 +1,12 @@
+* {
+    margin: 0px auto;
+}
+
+.container {
+    margin-top: 20px;
+    width: 800px;
+}
+
+#form {
+    row-gap: 20px;
+}
