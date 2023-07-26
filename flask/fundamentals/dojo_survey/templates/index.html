@@ -9,14 +9,14 @@
 <body>
     <div class="container">
         <h1>Dojo Survey</h1>
-        <form action="#" id="form">
-            <div class="name">
+        <form action="/function" id="form" method="post">
+            <div class="info">
                 <p>Name:</p>
-                <input type="text">
+                <input type="text" name="name" class="input">
             </div>
-            <div class="location">
+            <div class="info">
                 <p>Dojo Location:</p>
-                <select name="dojos" id="dojos">
+                <select name="location" id="dojos" class="input">
                     <option value="chicago">Chicago</option>
                     <option value="online">Online</option>
                     <option value="seattle">Seattle</option>
@@ -24,9 +24,9 @@
                     <option value="raleigh">Raleigh</option>
                 </select>
             </div>
-            <div class="language">
+            <div class="info">
                 <p>Favorite Language:</p>
-                <select name="favorite" id="favorite">
+                <select name="language" id="favorite" class="input">
                     <option value="python">Python</option>
                     <option value="javascript">JavaScript</option>
                     <option value="css">CSS</option>
@@ -34,9 +34,12 @@
                     <option value="raleigh">Raleigh</option>
                 </select>
             </div>
-            <div class="comments">
+            <div class="info">
                 <p>Comments</p>
-                <input type="text">
+                <textarea name="comment" id="comments" cols="30" rows="10" class="comment"></textarea>
+            </div>
+            <div class="submit">
+                <button class="button">Submit</button>
             </div>
         </form>
     </div>

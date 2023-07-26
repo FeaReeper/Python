@@ -11,18 +11,22 @@
         <h1>Welcome to the Great Number Game!</h1>
         <p>I am thinking of a number between 1 and 100</p>
         <p>Take a guess!</p>
-        {{% if session['guess'] < session['answer']: %}}
-            <div class="box1">
-                <p class="hint">Too Low</p>
-            </div>
-        {{% else: %}}
-            <div class="box2">
-                <p class="hint">Too High</p>
-            </div>
-        {{% endif %}}
         <form action="/guess" method="post" id="input">
+            {{% if session['num'] > session['guess']: %}}
+                <div class="box1">
+                    <p class="hint">Too Low</p>
+                </div>
+            {{% elif session['guess'] > session['num']: %}}
+                <div class="box2">
+                    <p class="hint">Too High</p>
+                </div>
+            {{% else: %}}
+                <div class="box3">
+                    <p class="hint">{{session['num']}} was the number!</p>
+                </div>
+            {{% endif %}}
             <input type="text" name="guess">
-            <input type="submit" name="submit" id="submit">
+            <button id="submit">Submit</button>
         </form>
     </div>
 </body>

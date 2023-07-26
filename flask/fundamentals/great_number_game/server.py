@@ -3,16 +3,17 @@ import random
 app = Flask(__name__)
 app.secret_key = "goku>superman"
 
-
+# This is our home route that needs to store a random number in session
 @app.route("/")
 def home():
     if 'num' not in session:
-        session['answer'] = random.randint(1,100)
+        session['num'] = random.randint(1,100)
     return render_template("home.html")
 
-@app.route("/guess", methods=["POST"])
+@app.route("/guess", methods=["POST","GET"])
 def numberGuess():
-    session['guess'] = request.form["guess"]
+    if 'guess' not in session:
+        session['guess'] = request.form["guess"]
     return redirect("/")
 
 
