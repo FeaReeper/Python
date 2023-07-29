@@ -1,0 +1,15 @@
+* {
+    margin: 20px auto;
+}
+
+.display-nav {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+    background-color: aquamarine;
+}
+
+table {
+    width: 500px;
+}
