@@ -4,7 +4,7 @@ from mysqlconnection import connectToMySQL
 
 
 class Users:
-    DB = "users_schema"
+    DB = "users"
     def __init__( self , data ):
         self.id = data['id']
         self.first_name = data['first_name']
@@ -18,7 +18,7 @@ class Users:
     @classmethod
     def inputUser(cls, data):
         query = "INSERT INTO users (first_name, last_name, email) VALUES (%(first_name)s, %(last_name)s, %(email)s)"
-        return connectToMySQL('users_schema').query_db(query, data)
+        return connectToMySQL(cls.DB).query_db(query, data)
         
 
 
@@ -27,7 +27,7 @@ class Users:
     def get_all(cls):
         query = "SELECT * FROM users;"
         # make sure to call the connectToMySQL function with the schema you are targeting.
-        results = connectToMySQL('users_schema').query_db(query)
+        results = connectToMySQL(cls.DB).query_db(query)
         # Create an empty list to append our instances of friends
         users = []
         # Iterate over the db results and create instances of friends with cls.
@@ -36,10 +36,14 @@ class Users:
         return users
             
 
+
+
     @classmethod
     def update(cls, data):
-        query = "UPDATE users SET first_name=%(first_name)s, last_name=%(last_name)s, email=%(email)s WHERE id = %(id)s; "
+        query = """UPDATE users SET first_name=%(first_name)s, last_name=%(last_name)s, email=%(email)s WHERE id = %(id)s; """
         return connectToMySQL(cls.DB).query_db(query,data)
+
+
 
     @classmethod
     def getOne(cls, id):

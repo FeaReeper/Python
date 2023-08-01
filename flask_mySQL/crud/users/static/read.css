@@ -3,7 +3,7 @@
 }
 
 .display-nav {
-    width: 500px;
+    width: 700px;
     display: flex;
     align-items: center;
     column-gap: 50px;
@@ -11,5 +11,5 @@
 }
 
 table {
-    width: 500px;
+    width: 700px;
 }

@@ -3,17 +3,31 @@ from flask import Flask, render_template, redirect, request
 from users import Users
 app = Flask(__name__)
 
-# root route for a home page
+# HOME PAGE -------------------------------------------------------------------------------------------------------------------------------------
 @app.route("/")
 def index():
     return render_template("index.html")
 
-# route to create a new user with a html displaying a form to input data
+
+
+
+
+# DISPLAYS ALL USERS PAGE ------------------------------------------------------------------------------------------------------------------------------
+@app.route('/users')
+def display():
+    users = Users.get_all()
+    return render_template("read_all.html", all_users = users)
+
+
+
+
+
+# CREATE A NEW USER PAGE -------------------------------------------------------------------------------------------------------------------------
 @app.route("/create")
 def newUser():
     return render_template("create.html")
 
-# route that is hidden, this is ran when submit is clicked on the create.html form page. Posts data to this route that sends data to class method in users.py, redirects to display
+# HIDDEN ROUTE THAT CREATES USER AND REDIRECTS TO DISPLAY ALL PAGE
 @app.route('/hidden', methods=['POST'])
 def create():
     data = {
@@ -23,21 +37,25 @@ def create():
     }
     # This is where the OOP is being called to create a new user and pass the data into the class method
     Users.inputUser(data)
-    return redirect('/display')
+    return redirect('/users')
 
-# route to display one user
-@app.route('/user/<int:id>')
+
+
+
+# DISPLAY ONE SPECIFIC USER PAGE -------------------------------------------------------------------------------------------------------------------
+@app.route('/users/<int:id>')
 def showOne(id):
-    users = Users.getOne(id)
-    return render_template("user.html", one_user = users)
+    return render_template("user.html", user = Users.getOne(id))
 
 
 
-@app.route('/user/<int:id>/update')
+
+# UPDATE SPECIFIC USER PAGE -------------------------------------------------------------------------------------------------------------------------
+@app.route('/users/<int:id>/update')
 def updateUser(id):
-    return render_template('edit.html', thisID = id)
+    return render_template('edit.html', user = Users.getOne(id))
 
-# route to edit a specific user
+# HIDDEN ROUTE TO UPDATE SPECIFIC USER REDIRECTS TO DISPLAY ALL USERS PAGE
 @app.route('/users/<int:id>/update', methods=['POST'])
 def edit(id):
     data = {
@@ -47,22 +65,16 @@ def edit(id):
         "id": id
     }
     Users.update(data)
-    return redirect('/display')
+    return redirect('/users')
 
 
 
-# route to delete a user
+
+
+# HIDDEN ROUTE TO DELETE A SPECIFIC USER REDIRECT TO DISPLAY ALL USERS PAGE ----------------------------------------------------------------------------
 @app.route('/hidden/delete')
 def delete():
-    return redirect('/display')
-
-
-# route that displays all the users
-@app.route('/display')
-def display():
-    users = Users.get_all()
-    return render_template("read_all.html", all_users = users)
-            
+    return redirect('/users')
 
 
 

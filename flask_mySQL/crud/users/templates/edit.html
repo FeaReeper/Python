@@ -14,13 +14,13 @@
         </div>
     </div>
     <div class="container">
-        <form action="/users/{{thisID}}/update" method="post" id="form">
+        <form action="/users/{{user.id}}/update" method="post" id="form">
             <label for="f-name">First Name:</label>
-            <input type="text" name="first_name" id="f-name">
+            <input type="text" name="first_name" id="f-name" value="{{user.first_name}}">
             <label for="l-name">Last Name:</label>
-            <input type="text" name="last_name" id="l-name">
+            <input type="text" name="last_name" id="l-name" value="{{user.last_name}}">
             <label for="email">Email:</label>
-            <input type="text" name="email" id="email">
+            <input type="text" name="email" id="email" value="{{user.email}}">
             <button class="create">Update</button>
         </form>
     </div>
