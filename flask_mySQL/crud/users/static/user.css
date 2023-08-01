@@ -10,6 +10,12 @@
     background-color: orange;
 }
 
-table {
+.container {
+    border: 2px solid black;
+    width: 500px;
+    padding: 10px;
+}
+
+.links {
     width: 500px;
 }

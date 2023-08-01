@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='user.css') }}">
+</head>
+<body>
+    <div class="display-nav">
+        <h1>User {{id}}</h1>
+        <a href="/">Home</a>
+    </div>
+    <div class="container">
+        <p>Full Name: {{first_name}} {{last_name}} </p>
+        <p>Email: {{email}}</p>
+        <p>Created On: {{created_at}}</p>
+        <p>Last Updated On: {{updated_at}}</p>
+    </div>
+    <div class="links">
+        <a href="/update">Edit</a>
+        <a href="/delete">Delete</a>
+    </div>
+</body>
+</html>

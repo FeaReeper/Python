@@ -1,7 +1,10 @@
 # import the function that will return an instance of a connection
 from mysqlconnection import connectToMySQL
 # model the class after the friend table from our database
+
+
 class Users:
+    DB = "users_schema"
     def __init__( self , data ):
         self.id = data['id']
         self.first_name = data['first_name']
@@ -32,3 +35,15 @@ class Users:
             users.append(cls(user))
         return users
             
+
+    @classmethod
+    def update(cls, data):
+        query = "UPDATE users SET first_name=%(first_name)s, last_name=%(last_name)s, email=%(email)s WHERE id = %(id)s; "
+        return connectToMySQL(cls.DB).query_db(query,data)
+
+    @classmethod
+    def getOne(cls, id):
+        query = """SELECT * FROM users WHERE id = %(id)s;"""
+        data = {'id': id}
+        result = connectToMySQL(cls.DB).query_db(query, data)
+        return cls(result[0])
