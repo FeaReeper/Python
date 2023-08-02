@@ -51,3 +51,10 @@ class Users:
         data = {'id': id}
         result = connectToMySQL(cls.DB).query_db(query, data)
         return cls(result[0])
+
+    @classmethod
+    def delete(cls, id):
+        query = """DELETE FROM users WHERE id = %(id)s;"""
+        data = {'id': id}
+        result = connectToMySQL(cls.DB).query_db(query, data)
+        return result

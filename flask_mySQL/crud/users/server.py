@@ -72,8 +72,9 @@ def edit(id):
 
 
 # HIDDEN ROUTE TO DELETE A SPECIFIC USER REDIRECT TO DISPLAY ALL USERS PAGE ----------------------------------------------------------------------------
-@app.route('/hidden/delete')
-def delete():
+@app.route('/users/<int:id>/delete')
+def delete(id):
+    Users.delete(id)
     return redirect('/users')
 
 

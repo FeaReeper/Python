@@ -8,6 +8,7 @@
     align-items: center;
     column-gap: 50px;
     background-color: orange;
+    padding: 10px;
 }
 
 table {

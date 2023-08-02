@@ -28,7 +28,7 @@
                     <td>{{one_user.first_name}} {{one_user.last_name}}</td>
                     <td>{{one_user.email}}</td>
                     <td>{{one_user.created_at}}</td>
-                    <td><a href="/users/{{one_user.id}}">Show</a> | <a href="/users/{{one_user.id}}/update">Edit</a> | <a href="">Delete</a></td>
+                    <td><a href="/users/{{one_user.id}}">Show</a> | <a href="/users/{{one_user.id}}/update">Edit</a> | <a href="/users/{{one_user.id}}/delete">Delete</a></td>
                 </tr>
             {% endfor %}
         </table>
