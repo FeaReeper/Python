@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='new_ninja.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <p class="title">New Ninja</p>
+            <hr class="solid">
+            <form action="/dojos/create/hidden" method="post" id="form">
+                <div class="full-form">
+                    <div class="dojo">
+                        <!-- add the dropdown for the list of dojos -->
+                        <select name="dojos" id="dojos">
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="mercedes">Mercedes</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                    </div>
+                    <div class="first">
+                        <label for="f-name" class="label">First Name:</label>
+                        <input type="text" name="first_name" id="f-name">
+                    </div>
+                    <div class="last">
+                        <label for="l-name" class="label">Last Name:</label>
+                        <input type="text" name="last_name" id="l-name">
+                    </div>
+                    <div class="age">
+                        <label for="age" class="label">Age:</label>
+                        <input type="text" name="age" id="age">
+                    </div>
+                    <button class="create">Add Ninja</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

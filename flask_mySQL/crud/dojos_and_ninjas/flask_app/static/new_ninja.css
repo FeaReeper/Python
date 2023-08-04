@@ -1,0 +1,32 @@
+* {
+    margin: 20px auto;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.box {
+    width: 400px;
+    height: auto;
+    background-color: #212121;
+    padding: 20px;
+}
+
+.label {
+    color: #9c8b5b;
+}
+
+.title {
+    color: #9c8b5b;
+    font-size: 40px;
+}
+
+.create {
+    padding: 5px 20px;
+    box-shadow: 2px 2px white;
+    background-color: #9c8b5b;
+    border-radius: 5px;
+    font-weight: bolder;
+}
+
+.solid {
+    border-top: 3px solid #9c8b5b;
+}
