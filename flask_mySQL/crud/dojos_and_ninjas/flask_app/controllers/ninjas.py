@@ -6,20 +6,25 @@ from flask_app import app
 
 from flask import render_template, request, redirect
 
-@app.route('/dojos/create')
-def display_form():
-    return render_template("new_ninja.html")
 
-@app.route('/dojos/create/hidden')
+@app.route('/ninja/create')
+def display_form():
+    dojos = Dojo.get_all_dojos()
+    return render_template("new_ninja.html", all_dojos = dojos)
+
+@app.route('/ninja/create/submission', methods=["POST"])
 def create_ninja():
     data = {
         "first_name": request.form['first_name'],
         "last_name": request.form['last_name'],
-        "age": request.form['age']
+        "age": request.form['age'],
+        "dojo_id": request.form['dojo_id']
     }
+
     # This is where the OOP is being called to create a new user and pass the data into the class method
+    # Is this what we mean by skinny controller and fat model by passing in the request.form instead of data (logic in the controller)
     Ninja.inputUser(data)
-    return redirect('/home')
+    return redirect('/dojos')
 
 
 

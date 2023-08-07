@@ -35,6 +35,6 @@ class Ninja:
         
     @classmethod
     def inputUser(cls, data):
-        query = "INSERT INTO users (first_name, last_name, email) VALUES (%(first_name)s, %(last_name)s, %(email)s)"
+        query = "INSERT INTO ninjas (first_name, last_name, age, dojo_id) VALUES (%(first_name)s, %(last_name)s, %(age)s, %(dojo_id)s);"
         return connectToMySQL(cls.DB).query_db(query, data)
 

@@ -11,15 +11,16 @@
         <div class="box">
             <p class="title">New Ninja</p>
             <hr class="solid">
-            <form action="/dojos/create/hidden" method="post" id="form">
+            <form action="/ninja/create/submission" method="post" id="form">
                 <div class="full-form">
                     <div class="dojo">
                         <!-- add the dropdown for the list of dojos -->
-                        <select name="dojos" id="dojos">
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="mercedes">Mercedes</option>
-                            <option value="audi">Audi</option>
+                        <label for="dojos" class="label">Dojo:</label>
+                        <select name="dojo_id" id="dojos">
+                            <!-- for loop to input all the dojos -->
+                            {% for dojo in all_dojos: %}
+                                <option value={{dojo.id}}>{{dojo.name}}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     <div class="first">
