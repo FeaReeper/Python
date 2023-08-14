@@ -13,7 +13,7 @@ def iterateDictionary(given_list):
             print(key + " - " + dict[key])
 
 
-iterateDictionary(students)
+# iterateDictionary(students)
 
 
 # 3.
@@ -25,7 +25,7 @@ def iterateDictionary2(key_name, some_list):
                 print(dict[key])
 
 
-iterateDictionary2('last_name', students)
+# iterateDictionary2('last_name', students)
 
 
 # 4. 
@@ -42,6 +42,7 @@ def printInfo(dict):
             print(dict[key][i])
             i += 1
         print("")
+
 
 printInfo(dojo)
 

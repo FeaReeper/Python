@@ -1,26 +1,25 @@
-from flask_app.models.user import User
-
 from flask_app import app
+from flask import flash
+
+from flask_app.models.user import User
 
 from flask import render_template, request, redirect, session
 
-from flask import Bcyrpt
-bcyrpt = Bcyrpt(app)
+from flask_bcrypt import Bcrypt
+bcrypt = Bcrypt(app)
 
 @app.route("/")
 def home():
     return render_template("home.html")
 
-@app.route('/create', methods=['POST'])
+@app.route("/create", methods=['GET', 'POST'])
 def create_user():
-
     # if there are errors:
     # We call the staticmethod on Burger model to validate
     if not User.validate_user(request.form):
         # redirect to the route where the burger form is rendered.
         return redirect('/')
-    # ****************Dont I need to put the bcrypt here, after the validator so the password doesnt go through the validator encrypted???????????
-    pw_hash = bcyrpt.generate_password_hash(request.form['password'])
+    pw_hash = bcrypt.generate_password_hash(request.form['password'])
     # else no errors:
     data = {
         'first_name': request.form['first_name'],
@@ -28,11 +27,11 @@ def create_user():
         'email': request.form['email'],
         'password': pw_hash
         }
-
+    # print(data)
     User.save(data)
     return redirect("/")
 
-@app.route("/login/", methods=['POST'])
+@app.route("/login", methods=['POST'])
 def login():
     # see if the username provided exists in the database
     data = {
@@ -50,4 +49,9 @@ def login():
     # if the passwords matched, we set the user_id into session
     session['user_id'] = user_in_db.id
     # never render on a post!!!
-    return redirect("/dashboard")
+    return redirect("/recipes")
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/")
